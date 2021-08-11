@@ -14,7 +14,7 @@ app.get('/', async(req, res) => {
     res.render('index');
 })
 
-app.post('/result', async(req, res) => {
+app.post('/result', (req, res) => {
     console.log(req.body);
     const operation = (req.body.operation);
     const num1 = (req.body.number1);
@@ -25,12 +25,12 @@ app.post('/result', async(req, res) => {
         const simpleCalculator = new calculator(+num1, +num2);
         const answer = simpleCalculator.add();
 
-        res.status(200).render('answer', { solution: { result: answer } });
+        res.status(200).render('results', { solution: { result: answer } });
     } else if (operation === 'product') {
         const simpleCalculator = new calculator(+num1, +num2);
         const answer = simpleCalculator.multiply();
 
-        res.status(200).render('answer', { solution: { result: answer } });
+        res.status(200).render('results', { solution: { result: answer } });
     }
 
     res.send('Invalid Input');
