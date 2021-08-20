@@ -9,46 +9,55 @@
 </head>
 
 <body>
-    <h1 style='text-align: center'>Code signal Simple Calculator</h1>
     <br><br>
-    <form action="/result" method="POST" style=' text-align: center; border: 2px solid red; width: 50%; margin-left:25%; '>
+    <h1 style='text-align: center'>Code signal Simple Calculator</h1>
+
+    <form action="/result" method="POST" onsubmit="return validation()" style=' text-align: center; border: 2px solid red; width: 50%; margin-left:25%; '>
+
         <br>
-        <label for="operation">Operation</label>
+
         <select name="operation" id="operation">
-            <option value="add">Select</option>
-            <option value="add">Add</option>
-            <option value="product">Product</option>
-        </select><br><br>
-        <label for="number1">Number 1</label>
-        <input type="text" name="number1" id="number1"><br><br>
-        <label for="text">Number 2</label>
-        <input type="text" name="number2" id="number2"><br><br>
-        <input type="submit" value="Get Result" id="calculate"><br><br>
+            <option value="" selected>--Select Operator--</option>
+            <option value="Add">Add</option>
+            <option value="Product">Product</option>
+        </select>
+
+        <br><br>
+
+        <input type="text" name="number1" id="number1" required>
+        <br><br>
+
+
+        <input type="text" name="number2" id="number2" required>
+        <br><br>
+        <input type="submit" value="Solve" id="solve">
+
+        <br><br>
     </form>
     <script>
-        let firstNum = getElementByID('number1').value
-        let secondNum = getElementByID('number1').value
-        let operation = getElementByID('operation').value
-        let calculate = getElementByID('calculate')
+        const operation = document.getElementById('operation')
 
+        //const solve = document.getElementById('solve')
+        //solve.addEventListener('click', validation)
+        function validation() {
+            const firstNum = +document.getElementById('number1').value
+            const secondNum = +document.getElementById('number2').value
+            const index = operation.selectedIndex
+            if (isNaN(firstNum) || isNaN(secondNum)) {
 
-        calculate.addEventListener('click', () => {
-            if (typeof fisrtNum !== number) {
-                alert("Number 1 must be a number!")
-                return
+                alert('input must be a number!')
+                return false
             }
 
-            if (typeof secondNum !== number) {
-                alert("Number 2 must be a number!")
-                return
+            if (operation.options[index].value === '') {
+                alert('Select an operator!')
+                return false
             }
-            if (operation === 'Select') {
-                alert("Operation not selected!")
-                return
-            }
-
-        })
+            return true
+        }
     </script>
+
 </body>
+
 
 </html>

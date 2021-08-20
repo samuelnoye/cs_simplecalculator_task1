@@ -19,14 +19,14 @@ app.post('/result', (req, res) => {
     const operation = (req.body.operation);
     const num1 = (req.body.number1);
     const num2 = (req.body.number2);
+    console.log(num1, num2, operation)
 
-
-    if (operation === 'add') {
+    if (operation === 'Add') {
         const simpleCalculator = new calculator(+num1, +num2);
         const answer = simpleCalculator.add();
 
         res.status(200).render('results', { solution: { result: answer } });
-    } else if (operation === 'product') {
+    } else if (operation === 'Product') {
         const simpleCalculator = new calculator(+num1, +num2);
         const answer = simpleCalculator.multiply();
 
