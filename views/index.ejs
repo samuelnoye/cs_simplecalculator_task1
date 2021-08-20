@@ -15,15 +15,40 @@
         <br>
         <label for="operation">Operation</label>
         <select name="operation" id="operation">
+            <option value="add">Select</option>
             <option value="add">Add</option>
             <option value="product">Product</option>
         </select><br><br>
         <label for="number1">Number 1</label>
-        <input type="number" name="number1" id="number1"><br><br>
-        <label for="number2">Number 2</label>
-        <input type="number" name="number2" id="number2"><br><br>
-        <input type="submit" value=" Get Result"><br><br>
+        <input type="text" name="number1" id="number1"><br><br>
+        <label for="text">Number 2</label>
+        <input type="text" name="number2" id="number2"><br><br>
+        <input type="submit" value="Get Result" id="calculate"><br><br>
     </form>
+    <script>
+        let firstNum = getElementByID('number1').value
+        let secondNum = getElementByID('number1').value
+        let operation = getElementByID('operation').value
+        let calculate = getElementByID('calculate')
+
+
+        calculate.addEventListener('click', () => {
+            if (typeof fisrtNum !== number) {
+                alert("Number 1 must be a number!")
+                return
+            }
+
+            if (typeof secondNum !== number) {
+                alert("Number 2 must be a number!")
+                return
+            }
+            if (operation === 'Select') {
+                alert("Operation not selected!")
+                return
+            }
+
+        })
+    </script>
 </body>
 
 </html>
