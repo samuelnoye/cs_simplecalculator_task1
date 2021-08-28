@@ -1,7 +1,9 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const calculator = require('./calculator');
+//const calculator = require('./calculator');
+const Calculator = require('./controller/calculator'); //require Calculator class
+
 
 const app = express();
 
